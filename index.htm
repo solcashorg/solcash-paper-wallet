@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+  <title>Solcash [SOL] Paper Wallet Generator</title>
+  <meta name="keywords" content="Solcash, SOL, paper wallet, generator, paperwallet">
+  <meta name="description" content="Generate recoverable Solcash [SOL] paper wallet encrypted with long password phrase">
+<link rel="stylesheet" type="text/css" href="./assets/style.css"  />
+
+
+
+  
+	
+	<link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAABACAYAAACKhS4jAAAACXBIWXMAAC4jAAAuIwF4pT92AAAF62lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxNDIgNzkuMTYwOTI0LCAyMDE3LzA3LzEzLTAxOjA2OjM5ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ0MgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAxOC0wMy0xNVQxNDo1Njo1NS0wNzowMCIgeG1wOk1vZGlmeURhdGU9IjIwMTgtMDMtMTdUMDQ6Mjc6MTMtMDc6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMTgtMDMtMTdUMDQ6Mjc6MTMtMDc6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTFhNWZkOTctMjQwMS0xMTQ3LWE3MzYtMTJkN2UzNmFhMDZmIiB4bXBNTTpEb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6OGE5NzBkMGItYWYwNi1jYzRjLThkMzQtZWJhMWQyZTRhN2FlIiB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6ZTIzOTk4YmQtNDg2OC1lYTQ3LWI0MDgtNTc0ODAwMDk5MDQyIj4gPHhtcE1NOkhpc3Rvcnk+IDxyZGY6U2VxPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY3JlYXRlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDplMjM5OThiZC00ODY4LWVhNDctYjQwOC01NzQ4MDAwOTkwNDIiIHN0RXZ0OndoZW49IjIwMTgtMDMtMTVUMTQ6NTY6NTUtMDc6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCBDQyAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjUxYTVmZDk3LTI0MDEtMTE0Ny1hNzM2LTEyZDdlMzZhYTA2ZiIgc3RFdnQ6d2hlbj0iMjAxOC0wMy0xN1QwNDoyNzoxMy0wNzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5iGaQCAAASAklEQVRogb2aeXRdVb3HP7+9z7k3Y5upTZOmkVIpUMokM/IYBMqouBRQVEApgjL4eEyvIrJQ4Akqk1ULqIgU0KXyABcCZR6FFpCpE0MLTdLStGkzNcO95+z9e3+cmzQ3uU3CsN5vrXblnrOH72/+7d/Z0nHjZJyHVGBo7/GoKJPKAvCKFyV20B+DeigpglDAa/I7o7C5VykSparMAIr34IBYZee0MbcrPBc5f2lgoD8LqopTKAoFo4oTwVqwFkQhEyuxh5QI6bQQ+2S8NUIoIEBPVjGA4VMk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" rel='shortcut icon' type='image/x-icon' />
+	
+  
+  
+</head>
+<p id="demo"></p>
+
+<script>
+
+mn_encode(4);
+
+document.getElementById("demo").innerHTML = str.slice(6, 8);</script>
+<body>
+<div class="page-container">
+  <div class="container">
+  
+    <div class="jumbotron" style="text-align: center; margin: 0px auto 10px auto; padding: 5px 0;">
+	
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOMAAAAyCAYAAACu7GzGAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACHDwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKL2lDQ1BJQ0MgUHJvZmlsZQAASMedlndUVNcWh8+9d3qhzTDSGXqTLjCA9C4gHQRRGGYGGMoAwwxNbIioQEQREQFFkKCAAaOhSKyIYiEoqGAPSBBQYjCKqKhkRtZKfHl57+Xl98e939pn73P32XuftS4AJE8fLi8FlgIgmSfgB3o401eFR9Cx/QAGeIABpgAwWempvkHuwUAkLzcXerrICfyL3gwBSPy+ZejpT6eD/0/SrFS+AADIX8TmbE46S8T5Ik7KFKSK7TMipsYkihlGiZkvSlDEcmKOW+Sln30W2VHM7GQeW8TinFPZyWwx94h4e4aQI2LER8QFGVxOpohvi1gzSZjMFfFbcWwyh5kOAIoktgs4rHgRm4iYxA8OdBHxcgBwpLgvOOYLFnCyBOJDuaSkZvO5cfECui5Lj25qbc2ge3IykzgCgaE/k5XI5LPpLinJqUxeNgCLZ/4sGXFt6aIiW5paW1oamhmZflGo/7r4NyXu7SK9CvjcM4jW94ftr/xS6gBgzIpqs+sPW8x+ADq2AiB3/w+b5iEAJEV9a7/xxXlo4nmJFwhSbYyNMzMzjbgclpG4oL/rfzr8DX3xPSPxdr+Xh+7KiWUKkwR0cd1YKUkpQj49PZXJ4tAN/zzE/zjwr/NYGsiJ5fA5PFFEqGjKuLw4Ubt5bK6Am8Kjc3n/qYn/MOxPWpxrkSj1nwA1yghI3aAC5Oc+gKIQARJ5UNz13/vmgw8F4psXpjqxOPefBf37rnCJ+JHOjfsc5xIYTGcJ+RmLa+JrCdCAACQBFcgDFaABdIEhMANWwBY4AjewAviBYBAO1gIWiAfJgA8yQS7YDApAEdgF9oJKUAPqQSNoASdABzgNLoDL4Dq4Ce6AB2AEjIPnYAa8AfMQBGEhMkSB5CFVSAsygMwgBmQPuUE+UCAUDkVDcRAPEkK50BaoCCqFKqFaqBH6FjoFXYCuQgPQPWgUmoJ+hd7DCEyCqbAyrA0bwwzYCfaGg+E1cBycBufA+fBOuAKug4/B7fAF+Dp8Bx6Bn8OzCECICA1RQwwRBuKC+CERSCzCRzYghUg5Uoe0IF1IL3ILGUGmkXcoDIqCoqMMUbYoT1QIioVKQ21AFaMqUUdR7age1C3UKGoG9QlNRiuhDdA2aC/0KnQcOhNdgC5HN6Db0JfQd9Dj6DcYDIaG0cFYYTwx4ZgEzDpMMeYAphVzHjOAGcPMYrFYeawB1g7rh2ViBdgC7H7sMew57CB2HPsWR8Sp4sxw7rgIHA+XhyvHNeHO4gZxE7h5vBReC2+D98Oz8dn4Enw9vgt/Az+OnydIE3QIdoRgQgJhM6GC0EK4RHhIeEUkEtWJ1sQAIpe4iVhBPE68QhwlviPJkPRJLqRIkpC0k3SEdJ50j/SKTCZrkx3JEWQBeSe5kXyR/Jj8VoIiYSThJcGW2ChRJdEuMSjxQhIvqSXpJLlWMkeyXPKk5A3JaSm8lLaUixRTaoNUldQpqWGpWWmKtKm0n3SydLF0k/RV6UkZrIy2jJsMWyZf5rDMRZkxCkLRoLhQWJQtlHrKJco4FUPVoXpRE6hF1G+o/dQZWRnZZbKhslmyVbJnZEdoCE2b5kVLopXQTtCGaO+XKC9xWsJZsmNJy5LBJXNyinKOchy5QrlWuTty7+Xp8m7yifK75TvkHymgFPQVAhQyFQ4qXFKYVqQq2iqyFAsVTyjeV4KV9JUCldYpHVbqU5pVVlH2UE5V3q98UXlahabiqJKgUqZyVmVKlaJqr8pVLVM9p/qMLkt3oifRK+g99Bk1JTVPNaFarVq/2ry6jnqIep56q/ojDYIGQyNWo0yjW2NGU1XTVzNXs1nzvhZei6EVr7VPq1drTltHO0x7m3aH9qSOnI6XTo5Os85DXbKug26abp3ubT2MHkMvUe+A3k19WN9CP16/Sv+GAWxgacA1OGAwsBS91Hopb2nd0mFDkqGTYYZhs+GoEc3IxyjPqMPohbGmcYTxbuNe408mFiZJJvUmD0xlTFeY5pl2mf5qpm/GMqsyu21ONnc332jeaf5ymcEyzrKDy+5aUCx8LbZZdFt8tLSy5Fu2WE5ZaVpFW1VbDTOoDH9GMeOKNdra2Xqj9WnrdzaWNgKbEza/2BraJto22U4u11nOWV6/fMxO3Y5pV2s3Yk+3j7Y/ZD/ioObAdKhzeOKo4ch2bHCccNJzSnA65vTC2cSZ79zmPOdi47Le5bwr4urhWuja7ybjFuJW6fbYXd09zr3ZfcbDwmOdx3lPtKe3527PYS9lL5ZXo9fMCqsV61f0eJO8g7wrvZ/46Pvwfbp8Yd8Vvnt8H67UWslb2eEH/Lz89vg98tfxT/P/PgAT4B9QFfA00DQwN7A3iBIUFdQU9CbYObgk+EGIbogwpDtUMjQytDF0Lsw1rDRsZJXxqvWrrocrhHPDOyOwEaERDRGzq91W7109HmkRWRA5tEZnTdaaq2sV1iatPRMlGcWMOhmNjg6Lbor+wPRj1jFnY7xiqmNmWC6sfaznbEd2GXuKY8cp5UzE2sWWxk7G2cXtiZuKd4gvj5/munAruS8TPBNqEuYS/RKPJC4khSW1JuOSo5NP8WR4ibyeFJWUrJSBVIPUgtSRNJu0vWkzfG9+QzqUvia9U0AV/Uz1CXWFW4WjGfYZVRlvM0MzT2ZJZ/Gy+rL1s3dkT+S453y9DrWOta47Vy13c+7oeqf1tRugDTEbujdqbMzfOL7JY9PRzYTNiZt/yDPJK817vSVsS1e+cv6m/LGtHlubCyQK+AXD22y31WxHbedu799hvmP/jk+F7MJrRSZF5UUfilnF174y/ariq4WdsTv7SyxLDu7C7OLtGtrtsPtoqXRpTunYHt897WX0ssKy13uj9l4tX1Zes4+wT7hvpMKnonO/5v5d+z9UxlfeqXKuaq1Wqt5RPXeAfWDwoOPBlhrlmqKa94e4h+7WetS212nXlR/GHM44/LQ+tL73a8bXjQ0KDUUNH4/wjowcDTza02jV2Nik1FTSDDcLm6eORR67+Y3rN50thi21rbTWouPguPD4s2+jvx064X2i+yTjZMt3Wt9Vt1HaCtuh9uz2mY74jpHO8M6BUytOdXfZdrV9b/T9kdNqp6vOyJ4pOUs4m3924VzOudnzqeenL8RdGOuO6n5wcdXF2z0BPf2XvC9duex++WKvU++5K3ZXTl+1uXrqGuNax3XL6+19Fn1tP1j80NZv2d9+w+pG503rm10DywfODjoMXrjleuvyba/b1++svDMwFDJ0dzhyeOQu++7kvaR7L+9n3J9/sOkh+mHhI6lH5Y+VHtf9qPdj64jlyJlR19G+J0FPHoyxxp7/lP7Th/H8p+Sn5ROqE42TZpOnp9ynbj5b/Wz8eerz+emCn6V/rn6h++K7Xxx/6ZtZNTP+kv9y4dfiV/Kvjrxe9rp71n/28ZvkN/NzhW/l3x59x3jX+z7s/cR85gfsh4qPeh+7Pnl/eriQvLDwG/eE8/s3BCkeAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMTg6MDM6MjYgMDc6NDY6MTCheb3VAAAbGElEQVR4Xu2dC5xTxfXHz9wkm+W1vOStovhGYdndbFgFERW1tmqr9YX4alWkvsW3oohVq7ZaxNrafv7WB1ZtUauiglIVscJukt0FqdhVQanl7QMQFja5987/d25md3NvbrJJNkHb5vv5ZO/MJJt779w5M+ecOTMRUkrqDJqmieaZAyZKTZsmiJ7a8OW6B4ZON3eqt4sUKZIhnRLGbx4cdKjPoz2AZE28BEj6RBpyaper1s5VJUWKFMmAnIRx8wN9h/pLSn+BkfBMZHFwQ86LmfrVPa7Y2KQKihQpkoashPHLX/bvUVrqvcEjxFRku8RL0xLF189s3hm7s+91G79RZUWKFHFBU8e0zJihac0PDf5Jty6+JgjiLSiyCaLw9SBv+WQSXQeokjZKhKDr8X//bH5oyDlsX6ryIkWKOOhwZNz+4ODxHk3cD2W0UhUloJHn4EnkrbmeRJc+RLFm0kMzSV/2ByIzpj7TDs70njT0K7peuaFBFRUpUkSRUhi3zhy4r9fjuQ9j2cmqqB38j7bnePIdfjuJPvurwnbk5s8otug2Mlf/DWdIGgwN/Pujxnaa1v3GNZtUWZEi//MkCeOWB/v0KtFKbxFCXI6sP17ajui1D/nG3k7aXkepktSYn71pCaXc+pkqsfG1JHlb6Mv1jxwx3dRVWZEi/7O0CeM7MzRvsO+gizCOzUC2n1WYgPD3Im/wWvKMOBfaqUeVZgDUVb3h96RHZhLpO1ShjeWGIa/oduXahSpfEEaMGFFSWlp6AJKDcPXCINqM9MpwOPyF9YE8U1VV1Q8d2j54lXEe9bwV6U8Kdb5Cc8ABB/i7d+++j1eIPaXUumua1FGHX+i6/lFjY+NG9bG8oGmaNzAqcGSoIbRAFeUF/t7gqFEHSCEGCQ2NGM9EtrR8Wrd8+Xr1kW8VSxibZw08TgjtfjSWg1V5O8JL3hHnk3f0NRgnrXaVE3L7BtL/fgcZH/0V35nsx0GX8OedsZbrel/9xeeqKC8EAoGRXqHdhBOcCLu3mypOZAXee/Lrb7b8rqmpaasqyxp2TqEBTdA0mojzTEDRHvF3kvgMGsHfTKKn6+vrF5qm6W4npKGmuvpHqMRJKmvRosfOh1BsV9m8UFFR0b/E60XvK05GQwnguZWot2zgBlYJSfNIGo/X1tdHVHHOBKuCE2Ee3RhqiIzKpX6coA3s6yXtZjyXU5DtGS+1sRI38RTt2P5Q7QcffKnKXBldXX2JIHGkyuLf5Oa6cPgilc0YXFMN2iWEqh2x46HBL+N4YjybAITUs/dx5B17G1TTvVWhG5KMj18lo/ER8gyfSJ6DJ+JbUztpzbVhir1zM8kvP0AuSSibYzpd0uOqNU+ofKcYHQjcjE6GR3pvvCQt/9KleUYkEqlV+YzBeSDo2t24m0NUUaY0mgbdkO0IUBMIXo+qu1dlLaKG3ruhoYFH+05TXV3d00NiOpJT8MpkCqsNSM47JskboAHUqaKsQWdTj7ZRiW/7Xm04/LoqzomaquAU0ujXSJbGS9IgaZMh5Nm49jdUSRKo+z+i7n+issz62nBokEpnDDqcU9Fxz1FZCw0XcIxKKyRpfQ6ikpPnkO+Ex9IKorkuQtE5J1Fs/mQyNzZSbOF1FH16ApmrU2uc2uBq8p/5OvmOuMdSfR109XnpbJXuFKi02yGIdyGZiSAye6Kneh3q5XCV75DKyspeNdXBOTjPyzkIIlMBZekNNL4noEZ3V2XfKsHK4HiPFCuQvBqvrASRQT0cAUFejBHkDlWUFaiLo+KCyC1RXGsV5gi+62do4b9DsmNBZAT1w7W/NLqq6jBVskuxDWGitDf5jvwVlUx8g7Tdx6jSZOSW1RSbN5miz51EJs9StKmdgsyvmyj68lkUfWkiRr9/qnIHGDnZ9vSfuxgjKWtB7fIC9S1puMyWmkDgUHzLbSqbCMwcWopBfz7uYjnSThWozCc8j6h0WmoqKvYu8Xi59z81XtIZxLndSrv8HSNS1j1sPkFvfS46hwWou8GqKBVcj/xKhSakSN2A0tIugGgIE0ZXVo5S2awYDdsQT3emyibCXpJ/4D0ecRvxQpOzUSo0z6MwOzKag88nGu64rUFqexwJ4TgLtZDiOlq2kL5oOrU8NY6Mla/icynkBuXm54uo5ZkJFHvzWpLNKex7nEf40Pkm3Hc+agBj+0042C4ON7lYRlv2h0pRURcJHQ/1Z6Q09ErrwSQgBZUOHz68h8q6MmrUqN3J63sHSZd5HRnFn6dNk06D2rvX9p07/PyCGgkVQ56OlvBnfCp5EpaoHL3yQgjkbiq/S8Eocjoew2NIumkSH6MCp+F+DmV1GHXoDdVHfLivvlCzx+K9W/EZHk3bEZR1xFWwIsjaxffiOYXmtdlVmSJ8vuuSbVy53NRpZF04NKI2EoIKHKokPXYQrt9pmhjQkJIiWAoN24xs9HfljGf/U8h37EOctGPGyFj6R4qxRzSag4/D24W8FZeQt+oSpKExSIOM958gPXQ/yZYkM+fN0svWsAMkJ4YOHdplUL/+mx0P4is0nP2WL1/+lcq3wV5PjIZhCOFOadK0SGPk+XROg2HDhpX277vbEiTdeuznDZJTYXP8S+VdGV1ePkyU+Lmivx8vsbEIDf0oXEPKkSffNiOPPsLj5QZpn8qStFmSOTXc0PAErsc5gthgB1Z1ZeVxgrR7cW0jUTQbjR1qT+a42GNMTLbs3Kfu/fczduzxtQQrAxvwXYmzAjvRmRwYiURWq3wbbCJ0Ky1dDHHoKUlOD9fXz05V/4W1GW0kj3TGx3OpZfbhFFsMEyCdIKZuO9aUhh6+n1qePBTHWRhZx1Ps3VvdBJHplJrar1+//ZJ7RHrVTRCZ+vp6NtrHhesjh4TqQ8+lE0SmX9++bIc6BRHPkK7BQzm1I0Fk6pYtWwWBOwH/w84lJ+PQkG5U6YKDhuslj3c2kjZBRCWs0smsrotEHutIEBmuN3x2PuoyoO5rS/ydzECnCNVY2jzECh/5/VeqdEZAuPo7BBHIRW6CyKBtbIsaxvFfb92yf104/HgqQSw0LIztjS9B7bScM385kWLzLyb5TZpOSXjIe/B5sP+WkHfkBVY+Fayu6nX3wuZcpUpc6ZQwaqaWpGJCUr5WSVdYgPAAOgw8YOeOIHGFyrbDghgJ8VKyjOHGi/+5Hf+b7OgQdPPokSNTTY3klWBF4EJUuN35JGmT0GMT0Hg/USUZg7qM8X1BE2FvbMZ4Ne1yl07UAnV+EXt4VbZDfD5fchuQIm0bgFaxpqmpqUVlvxWSRkbLOfPaRXHnzMZE54wDa+rje+Q/ayF5j7zb8rp6x92B/FuwPcdb7+eCRK2pZG7I5B5ZSDE+Hwa5V3jYFnXYVHIOGh+7znMi1BC5Hd/hdKV3FX7/dSpdMFAlHqlR8nmEnFzb2PipyuVEKk3EDbbRIXAXq2wcSa+oFFOGh5fxXB7aUHIbEDSGAxdU9juJbWQ0//1u3Dmz6rXUQsjA7iv54bPk+8GjJHoPU4VxRO998d6fqOTE2dDA081PFoYd+o6P+BDPKWDDVFdV3aByOVFeXt4bXdXpKtvKDqg3PAWQMzxCxkzzMiQdI7M4j+1flSkIGOnH4SnbHyBs1tpw+EWV3iX06Nbtpzj0juesBtkEddfmvGCNBKOjT2XTwqYHvmStyraye+8ePe9R6e8kWuL4Jbevx58MwkT1nRR7cyoZH3G8gPsIqO11NPknLSTfmNtI+FJMoXm6kHf0DeQ5MKGNo9ZVKifQI0dxeCmeawdfexeM77ssGykH/D7/CU41CoP/U6zeqGzOoPF8jG/7q8q2UjZgtwHHqnRB8EhxkkomIH+jErsEfh7QXGwdGhrAc6iTt9C0EhcS7KFJeYZKdwhapc05YiHoqprq6t+xE06V5AONPeDZvoQwk1RpXmDoLk0dILevo9jrUyj6/I9JfmH3arfBvoGKi6mE5xOHn4UCJWc4I3tu/ee+R95qmGCJ8iE7J4yMjEWh+jlGx7iY3xysCkTiE8vZoQl5hEq2IYR8ViXzwdPq2AYU66Rz5hVBY1WqlViLrkMt2nUEKgOn4jqGqixjGiTZaaSjmdgisYQjfCwdujTuw8FFVRZT+vfdbdnoqqqT0BF0uq2B/h4Sm7J94V7+qP6/DbsDxwm6ftF3uHV0hecT19VRy7PHUuztG4l2utvIoktf8h31S/Kf+QaE8MdUctpcawpFdCvMVE7d0qVNpknsVnedz8MVvVlTHXwnK6GUSXG7+rqNG3mKIy/siEZ53tJW0ciMUMlCcaA6trIi3/GtHYEG6IyyeSUcDq/khEEmj9KJqtooCFFG014YWaGmytOQbI6X2NhfaJ6X0DGH8iiUnSaFU0OS1m8ElZz6MvknLoAN+Azsv33Ue25IMj6YTS1PjiFj2WPIunuGxW7DIYSzSBvoWKeco7MnHTxNgS/mCeRUEfnjLKEMBN/kYHJVlhpBu6tUK5+vXr3adRlKLixbtox7Muf6zoJ5VKEqsXfSaT+4rnUrFBx6h3qtUlkLjIptUTPxqQi7+i6EJ+MQOdi+b0lDH49kKmdUIC6UVUs4cFuVfWtwbKpNEkQpj2IPUMkZ80gbFLDKtD2PgP33lmX/USr7D8joFoq9O42izxxD5r8Xq9IsEek8R9nBD6NFj5WzbaeKkhF0lFdo9RDKuzuwJ50rPrKaR8sQ28QrKsJtlUlegBqY9N2op126T5HmkU7BWoZR8W2VtjAN8aBKxhF0bEadp6KuoSEMAa9AkkfZFPOlYjTaAMfT/jbP9mRW2MPhhhxG/vOWwL5z2fRN2X/+c94jz4Hp7WjzqyaK/vVUir02meQ36f0bsnkTyS8/VDmLvKoMvNauLhI6h6TJ9lcqtdKLs95UXRmYX1FRkUoA2DGUSEaevSxxzrO5qdl5AR2P836YQtyTKzxni0dti0DCuJAUSxpqCL2HBhpWWUZ44xuiZQwEfEttOHS5Ls0gvutvqtgJRgHxM9iT744YMaKPKsuEjRD2ftm+pDTZg2zDpqbytAT50nfGoutu5JuAkfO010jrjw4njT1prHqVWp46nPTaX1keWBu86Lj+Yai2h5G5cakqtCiI/l4biSzCAzkMlcAeRNc1d7jko/1eX5IjxUImOQOcamungHBwtIQtrAo1W7CFyDt37uRwKps9IYTsr5IFx6d52BmT+Kw3bN669RmVtoHxwi6kkiZWVlYOUbmMgdpbXxcOHQNhOAp1yza6G4FupV1eVs8jE0wI+xfZvqTUkrQQuwMnzTpEJ9qAcio5fS4E80ESXZI2BmjHaCE98msrpI5D6xhz1RvIH0H6krshpG72deGoi0TmhuojQdw2L9VyW0h6Ehv1Kt0GKskZjdITvft+Kt1pAuWW6mWblEYj/Fgl846aAnKEVrksLi8AsFe507GFvqFPf69X9+6Hs4PG+ZKmyfZ0e0MRoqTE402OhMoQCMPbEEqOTOF1vG6q2xjYkc4Y2YJjE0bhEEbz0wUUe+V8KzTOHUGeg06LT1GMmoJsapNLbl9rhda1PB6k6KvnQ311DRNkCjIyJmKFooXDf4Laws4DDhKwIYQnKdoDF5W0WNYnPMmLsnME/fCPVLIdU2S90DlL6tWxlf4QlEJ7cHl+k4Mc7B2PoFOE5lmQ4sXTLdZihjYkTe5odU1HoA28EjONCnyXsx5QJCar5C7DLn1KGOWXsPlePJOir5xHxmcLrNC42PxLSG5zBjUooNp6x95K/klvk7bnUfiC9sHWBmpcbkNHhON3AfbW4WHw7nd220xQ0uJSQ8h5KtmOoIuzUGdSYoVpCbpAZdvQhZl8znxiJttPmhRZrbTIFmsRtaCfqWzuCOpV1rX7hSqXMxytEzX1HyJpUxvRQisKHQHlxDYyyug3pL99k7UOkUPj2oQGR+OTl6BajlX2n7tHX/QaRiUnzY6HwpXtpUq/2+Bh8B44b6lsK32ccYxQbXivV94rJJH9oc50ugft3aPnVTg4baAluQRqZ0OLGXsBB1tHhEd9cXl5ecHW8nUrLbWFvnWSKzvwgGdEPIoqKQLK279//zT2V/6xCaOx4lnSP3gSqRQe4Fb778mxZDTxtbuPgNoeY8izn0uklQui5zBrTrMVkYcIHIa9orA3MopgwV0kOUpisVjSdUiS6ImciHuh2jknzzMG/1uJO+aIIQeSI0gKCnuaocT8RWVb6dGlxP97NPJOPQeMgEkrMOKCI7jjaQN1vwrX8HgmL3z8ufh/KQQNDVQEeGLfFe5QawKBo1U2LW5toNOLFrLEoaZmdm7ZvJ5ib1xq7X9jbrB5QslcOQ8j6DjS62epkhSU9CTf4XeQ/+yFJHonLJjvZGwqB3TXBILT/B7fp7A1nrfUog7AbfMWju1I2rxq1aqkn7XjRac42G8YjddDYh5vw6HyGcPuffzvq0ja5rbQMN4J1dcnxdcWAmHE7kCrc05z/LC6MpBzZxAMBC/uWlqaFLoGLYJ3Z7PVEwyXm+oioZ9k8grVR05H3dh2ZkCXkXQe7ojRBqb2Luu5EqbXq5mM9Gh09jaApvzVV19tUOldgm1kzAq0YN7/JjrnBxDMK8hcUxu3M1+7IG4XpoLXP468gEp5PrNcrX9Et5cv0KsvRc3+HC9WMfpCLbo7/o47KvLCFgWC4Zn3RknCNE3D1InVLKeg7kVe35JgZdCxuVdqaqqrT/Zpnr8jOTBe0sZW3TQuYieTyheU2sbGj9D/23YNYPB4r62pDj6aZt41Cd7BAEIwFwLyiJAiabmSywZT/0Knw6pyRlh1Ik37VhSCqpxhjX6vDz083Y8kq/7+Up//wXQjPTpSjAbCGZT/oVuHXEjsI2MiEBBtQCX5xt0N+y8xjjcZ46PnKfrCKXY70wl/317HkH/SO9a6R/InrhVNaHedVFNxGlxEIuJyNKpHeCc3VdAGhCfoFRpH99vPaQqn/dBGqDEEQZW8haFTWAZoHnpjdCD4PL53jNvDR5nGDQfXw2vUuBE6bSeDY2rjqziyw0e0H6vLGbzsXkmAEZ8XOLtt6fdTNOx/4JovTOW5xC152BzAPT0pfCUfoiZPUG/Z4M+gQqpV1gKS9RAELKvd5E0hOJrKMecrbKMjvneRSlqgSZ4RrAo87TZC1lRWHiy9Pl5+5Ax42KXLyBixY9agDbha22Sv6LEHeQ+7BXaf8tyjvvT3Hycj9IAV8pYd8a0fvYfPgC3pXCQQJ/b6JWR83KaVhUovWzNapbOmpqoqQJonhKRTGHieiid6V+JhYTgW5fjAocg7P7dx6/Zt+65YsSJtaBhUscsgbhyqlapDY3usAQ0h7oKWNAQjUBVOlmrDKR2CeEGoPsRGe1ow+iTtgZMp0jTG19XXJ014Q0h7aiQWOAWmDVZlhbWb2kqYUtuFkFD/BY88HGqWLKiSZvCKf5Xja57rENRtUUPfI5d9e/Bd9+G7EhdFSzL0EbUNDZaDzdpjyOoYHDsH4B6kEIuEpCb0pAL3cBAO4/CO0yO+LWYaB8SDze3g3AXcAwdXpNIkfF0hhLeS/5x32wWRgd3tHXUh+c+rtX76jbTMoqasONfxv6SSiQtSCqJFHtVUtaP1w/GcDR4RjsfrMg57QqPj6QunIOJC5JSOBJEJRUK/wWc5bjDVZ/tDEDlQndXan+JMx6USRJz0C/w9IRNBLBThcHjLN9u3HY2LSVxh347VsAU6SXEW7usiHCeilBtyh3N9MAUOwv3/QGUV8rFcN9CKmvpvcUiMHhKJu8jxHkPo+O5U2XZwD3gGE/DpS3EPl6CAdwZPmpqS0rzGTRALjZZomchYM8lNy0nuSLFjgr8MI9x08p+9iDz7QFhTyZBWQt7KS+NxrodMwj2nGDzYOxueRcZnqcIFc8MgORXyzVsiZkMMNzS5NhxOqaI6wWfn6NKsRD3kvOs1rvOFlli0At/VqZ2z8wF3QqGGyElojDwpn3bPmA6Yt1OP/p9Kk/px3cSOz9Sl7MDDlxoI8WeoN1Yt2xF0Fkb3thEKqved+AwLbTawUXpTXSTyB5XfpbBlYxMp4+MX4/OJ9RhcXH5jkRFle5Lv+EesdYnagIDVoixwZCH1n/0uRtiboYWntv15lwCeIuENquwhcZ13J6OXj4UbIhPJtCaXM/lRE/7dyDEQiLYGlCk8Fwh1DCOgbB1VMrGBWvD5Oeg0auoioR8vXbr036r8W4edJGiMD++ItuyD+5mGokz3wuGf+psPNfgYqG3fb72n0SNGDIQm4twl/pXOzqFKk5zC7PdI65fTLOL3EboUn5yE+0gZ7pUA+wKOqQuHv7WtOXjfVB6OXXVeUbY3+Y74OWlD237nwwVJ5ievkf7hX8gbuLxt2VUqeCpE599uXA9tErpCMjJcetnaoMp0Gp5rKisrm4AHdRgJuR9Oyo4cCIzchC5kudTF/FBjyOYu7ww1Bx/c1yztdiTsgWo0zr1gBViOI96dDHe7EtcQjhrGwlxVtF0NO6KqR40ql5p3LDruA3BPg/HYoJpKnob7GunVGE4aY0bsrXz/GlW+wD14qysqxiNxGDoG3rS4N56DwPVvwvEDYZoL8vGDPZ1FNM8aPAUVyu5/96gI1L6297HWnKDouacqzB65bR3pi++KBwukGfsgIPd2uWzNLts3tEiR7wroHSRtu6dnP0/37ndBRjg+0t3AYzuwYkp8zxpvFiF7vIFx5GHSG6G+w0ZMjYxAt7i69Ir1PPdWpMj/HJYwtrJj5pCA8EAXF5bL3xXRbRB5x063e1tdkWR8+BzpS35BsjltIMMafPSWe79aN3v69I53ri5S5L8VmzAybCNsmzXwPI3EL5B1RofEYdV1yBjYk3eS6OuMIoJduDZM+ru3krnxfZwhpU7aLEn+amvL+vsGXGPu0k2QihT5LpIkjK18el/fngO7+m+DwcseKveJRaGR95DzyXvodUQlZSS3fk76e3eS8cncdEIodSn/FNOjN+f7V4qLFPlPJqUwtrLtN0OGe8mKNEm5RZ7w9yFt2LFkNL2AYdFta5U4ONPimC6vLrtqLUfIFClSJIEOhbGVbQ8OOcXjkfdjpMx6oSLOsBonurHrlev/vKsCoIsU+U8jY2Fk1s3QuvbqM/B6IcT1yGbiUuVQsXu+0Nf9everzLztMVqkyH8jWQljK1vuH7y33y94iQpvWeGGYRA9IQx9WtcrN6xTZUWKFElDTsLYytaZA48t8Xp4G72D4iUWb7dE9Wt6Tt3guiawSJEi7nRKGJkVM7SSob0HXO7RtEm6NH5eduXGF4t2YZEi2UL0/xBGpHdRAAAlAAAAAElFTkSuQmCC">
+	  <h1 style="font-size: 40px">Paper Wallet Generator</h1>
+      <p>Generate Solcash paperwallet with unique passphrase.</p>
+	  
+    </div>
+
+	<div>
+<p></p>
+
+
+    <div class="col-lg-12 col-sm-12" role="tabpanel" style="margin-top: 1.2em;">
+
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="/#create" aria-controls="create" role="tab" data-toggle="tab" aria-expanded="true">Create</a></li>
+        <li role="presentation" class=""><a href="/#restore" aria-controls="restore" role="tab" data-toggle="tab" aria-expanded="false">Restore</a></li>
+      </ul>
+
+      <div class="tab-content">
+
+        <div role="tabpanel" class="tab-pane active in" id="create">
+
+          <form class="form-horizontal" role="form" onsubmit="event.stopPropagation(); return false;">
+
+            <div class="form-group has-feedback has-error">
+              <label class="control-label col-sm-3" for="passphrase">Enter you Passphrase</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="Type your passphrase here" name="passphrase" id="passphrase" style="padding-right: 160px;">
+                <span class="glyphicon form-control-feedback glyphicon-remove" aria-hidden="true" style="position: absolute; right: 150px;"></span>
+                <button class="col-sm-2 btn btn-primary" style="position: absolute; right: 15px; top: 0; border-bottom-left-radius: 0; border-top-left-radius: 0;" data-toggle="modal" data-target="#passphraseGenerateModal">... or Generate
+                </button>
+              </div>
+            </div>
+
+            <div class="progress col-sm-offset-3 col-sm-9" style="padding: 0;">
+              <div id="passphrase_security" style="min-width: 40%; width: 5%;" class="progress-bar progress-bar-striped progress-bar-danger" role="progressbar">very weak (less than 10 words)</div>
+            </div>
+
+            <div class="form-group has-feedback has-success">
+              <label class="control-label col-sm-3" for="passphrase_repeat">Repeat you Passphrase</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="Repeat your passphrase here" id="passphrase_repeat">
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div style="text-align: center;" class="col-sm-offset-2">
+                <button class="btn btn-success disabled" id="createWallet">Create Wallet</button>
+              </div>
+            </div>
+
+          </form>
+
+        </div>
+
+        <div role="tabpanel" class="tab-pane fade" id="restore">
+
+          <form class="form-horizontal" role="form" onsubmit="event.stopPropagation(); return false;">
+
+            <div class="form-group has-feedback">
+              <label class="control-label col-sm-3" for="passphrase">Enter you Passphrase</label>
+
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="Type your passphrase here" name="passphrase_restore" id="passphrase_restore">
+                <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div style="text-align: center;" class="col-sm-offset-3 col-sm-9">
+                <button class="btn btn-primary disabled" id="restoreWallet">Restore Wallet</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade modal-scrollable" id="passphraseGenerateModal" tabindex="-1" role="dialog" aria-labelledby="generateModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Generate Passphrase</h4>
+        </div>
+        <div class="modal-body">
+          <p>Move your mouse to add entropy before generating the address.</p>
+
+          <div class="progress">
+            <div class="progress-bar progress-bar-stripped active" role="progressbar" aria-valuenow="100" aria-valuemin="100" aria-valuemax="100" style="width: 100%;" id="moves_required_count">100s</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade modal-scrollable" id="showResultsModal" tabindex="-1" role="dialog" aria-labelledby="generateModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+          <h2 class="modal-title" align="center">Your wallet is <span id="mode_dependant_action">generated</span>!</h2>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-3">
+              <h4>Address</h4>
+
+              <div class="qrcode" id="qrcode_address"></div>
+              <br>
+
+
+              <div class="panel panel-default">
+                <div class="resulting panel-body" id="resulting_address" style="word-wrap: break-word;"></div>
+              </div>
+
+
+              <p class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> This is your wallet's public address. You can give it to anyone to receive money.</p>
+
+            </div>
+			<div class="col-md-3">
+			  <h4>Tracking key</h4>
+			  
+			  <div class="qrcode" id="qr_tracking_key"></div>
+              <br>
+				
+			  <div class="panel panel-default">
+                <div class="resulting panel-body" id="resulting_view_key" style="word-wrap: break-word;"></div>
+              </div>
+			  
+			  <p class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Solcash simplewallet as private view key. <strong>Required for wallet restore.</strong> This key along with wallet address allows tracking incoming transactions. Seeing outgoing transactions and spending funds is NOT awailable.</p>
+			  
+            </div>			
+          <!--/div-->
+			
+		  <!--div class="row"-->
+            <div class="col-md-3">
+              <h4 class="text-danger">Passphrase</h4>
+
+              <div class="qrcode" id="qrcode_pass_phrase"></div>
+              <br>
+
+              <div class="panel panel-danger">
+                <div class="resulting panel-body" id="resulting_passphrase"></div>
+              </div>
+
+              <p class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Use it to restore/regenerate wallet by Paperwallet Generator. <strong>Keep it secret!</strong></p>
+            </div>
+            <div class="col-md-3">
+              <h4 class="text-danger">Private Key</h4>
+
+              <div class="qrcode" id="qrcode_private_key"></div>
+              <br>
+
+              <div class="panel panel-danger">
+                <div class="resulting panel-body" id="resulting_private_key" style="word-wrap: break-word;"></div>
+              </div>
+		  
+			  <p class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Import into Solcash simplewallet as private spend key. Required for wallet restore. <strong>Keep it secret!</p>
+
+			</div>
+
+          </div>
+          <h2 style="text-align: center;" class="print-hide text-danger">Please save and print this data for future use before leaving this page if you just generated new wallet.</h2>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="print_results">Print</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<footer style="text-align: center; margin-top: 100px;">
+
+<script type="text/javascript" src="./assets/scr.js"></script>
+<script type="text/javascript" src="./assets/scr1.js"></script>
+<script type="text/javascript" src="./assets/scr2.js"></script>
+<script type="text/javascript" src="./assets/scr3.js"></script>
+<script type="text/javascript" src="./assets/scr4.js"></script>
+<script type="text/javascript" src="./assets/scr5.js"></script>
+<script type="text/javascript" src="./assets/scr6.js"></script>
+<script type="text/javascript" src="./assets/scr7.js"></script>
+<script type="text/javascript" src="./assets/scr8.js"></script>
+<script type="text/javascript" src="./assets/scr9.js"></script>
+<script type="text/javascript" src="./assets/scr10.js"></script>
+<script type="text/javascript" src="./assets/scr11.js"></script>
+
+</footer>
+
+
+
+</body></html>
